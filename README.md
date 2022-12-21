@@ -21,7 +21,7 @@ Nmap-grepper is most useful when combined with text processing tools like grep/c
 
 ```#concatenate all gnmap files in the current dir, pipe into nmap-grepper, then cut fields 1,3,6 (IP, Port, Service Banner), grep for ssh, then sort uniquely```
 
-```cat *gnmap |./nmap-grepper.pl | cut -f1,3,6 | grep -i "ssh" | sort -u```
+```cat *gnmap | ./nmap-grepper.pl | cut -f1,3,6 | grep -i "ssh" | sort -u```
 
 You might see output like this:
 
@@ -29,13 +29,13 @@ You might see output like this:
 
 Or, you might want to look for anything that could be a SQL database:
 
-```cat *gnmap |./nmap-grepper.pl|cut -f1,3,6|grep -i "sql"|sort -u```
+```cat *gnmap | ./nmap-grepper.pl|cut -f1,3,6|grep -i "sql"|sort -u```
 
 ![image](https://user-images.githubusercontent.com/108018363/208955800-11863b28-aae3-4ded-9d50-6e4d32e2e8be.png)
 
 Or maybe something Java-related:
 
-```cat allservices.gnmap |./nmap-grepper.pl|cut -f1,3,6|grep -i "java"|sort -u```
+```cat *gnmap | ./nmap-grepper.pl|cut -f1,3,6|grep -i "java"|sort -u```
 
 ![image](https://user-images.githubusercontent.com/108018363/208956057-c79d1339-7ef6-4773-b941-fd49dcc80a1e.png)
 
@@ -45,7 +45,7 @@ You are limited only by your own ingenuity!
 
 If you want to limit the search to the exact contents of field, for example you want to search for the whole IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*". then include the tab delimiter in your grep command, eg:
 
-```./nmap-grepper.pl|cut -f1,3,5,6|grep -i 192.168.33.14$'\t' |sort -u```
+```cat *gnmap | ./nmap-grepper.pl|cut -f1,3,5,6|grep -i 192.168.33.14$'\t' |sort -u```
 
 Another tip. Extend the range of fields you include (or remove the cut altogether) to enable searching on other fields such as hostname.
 
