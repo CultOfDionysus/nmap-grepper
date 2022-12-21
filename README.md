@@ -47,6 +47,8 @@ If you want to limit the search to the exact contents of field, for example you 
 
 ```./nmap-grepper.pl|cut -f1,3,5,6|grep -i 192.168.33.14$'\t' |sort -u```
 
+Another tip. Extend the range of fields you include (or remove the cut altogether) to enable searching on other fields such as hostname.
+
 
 
 
