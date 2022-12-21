@@ -43,11 +43,39 @@ You are limited only by your own ingenuity!
 
 ## Top Tips
 
+### Search Limiting
 If you want to limit the search to the exact contents of field, for example you want to search for the whole IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*". then include the tab delimiter in your grep command, eg:
 
 ```cat *gnmap | ./nmap-grepper.pl|cut -f1,3,5,6|grep -i 192.168.33.14$'\t' |sort -u```
 
-Another tip. Extend the range of fields you include (or remove the cut altogether) to enable searching on other fields such as hostname.
+### Search Extending 
+Extend the range of fields you include (or remove the cut altogether) to enable searching on other fields such as hostname.
+
+
+### Import into Excel via .txt file 
+A very useful tip if you need to include any output for reporting or further processing. Save your output into a .txt file:
+
+```cat *gnmap | ./nmap-grepper.pl | cut -f1,3,6 | grep -i "ssh" | sort -u > textfile.txt```
+
+
+Then open the file in Excel, making sure to select "text files" as the file type:
+
+![image](https://user-images.githubusercontent.com/108018363/208962360-5bb9f3b8-c198-4208-9d8d-06de1e5e84e2.png)
+
+
+Excel will detect the file is delimited. Go ahead as follows:
+
+![image](https://user-images.githubusercontent.com/108018363/208962580-91252879-f440-4e13-ae70-a72838fc5ef9.png)
+
+
+And the import is complete!
+
+![image](https://user-images.githubusercontent.com/108018363/208962875-630f4224-35f7-4204-a3b5-dd7b80bde1db.png)
+
+
+
+
+
 
 
 
