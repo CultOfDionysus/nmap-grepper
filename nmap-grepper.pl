@@ -53,7 +53,8 @@ while (<>)              # read stdin
                         foreach my $t (@ports) {        # find the individual port items
                                 @services = split /\//, $t;
                                 if ($services[1]  =~ /open/) {  # sometimes there's no service name (element 4) or desc (element 6)
-                                        print $ip, $delim, $host, $delim, $services[0], $delim, uc $services[2], $delim, $services[4]  ? uc $services[4] : "unknown", $delim, $services[6]  ? $services[6] : "unknown", "\n";
+                                        print $ip, $delim, $host, $delim, $services[0], $delim, uc $services[2], $delim, 
+                                        $services[4]  ? uc $services[4] : "unknown", $delim, $services[6]  ? $services[6] : "unknown", "\n";
                                 }
                         }
                 }
