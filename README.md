@@ -3,7 +3,7 @@
 ## About
 Flattens Nmap "greppable" input into a tab-delimited table, making it easy to combine, search and select from a large number of .gnmap files. It reads .gnamp input from STDIN and writes tab-delimited lines of fields to STDOUT, __1 line per open port__, as in the following model:
 
-```1: IP Address<tab>2: Hostname<tab>3: Port<tab>4: Protocol<tab>5: Service Name<tab>6: Service Banner<newline>```
+```1:IP Address <tab> 2:Hostname <tab> 3:Port <tab> 4:Protocol <tab> 5:Service Name <tab> 6:Service Banner <newline>```
 
 If you're in the habit of scanning large networks with Nmap, sometimes you want query the results to answer combinations of questions like:
 * Are there any services running on non-standard ports?
@@ -44,7 +44,7 @@ You are limited only by your own ingenuity!
 ## Top Tips
 
 ### Search Limiting
-If you want to limit the search to the exact contents of field, for example you want to search for the whole IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*". then include the tab delimiter in your grep command, eg:
+If you want to limit the search to the exact contents of a field, for example you want to search for the whole IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*". then include the tab delimiter in your grep command, eg:
 
 ```cat *gnmap | ./nmap-grepper.pl|cut -f1,3,5,6|grep -i 192.168.33.14$'\t' |sort -u```
 
