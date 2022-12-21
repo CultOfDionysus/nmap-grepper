@@ -41,12 +41,13 @@ Or maybe something Java-related:
 
 You are limited only by your own ingenuity!
 
+##Top Tips
+
+If you want to limit the search to the exact contents of field, for example you want to search for the whole IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*". then include the tab delimiter in your grep command, eg:
+
+```./nmap-grepper.pl|cut -f1,3,5,6|grep -i 192.168.33.14$'\t' |sort -u```
 
 
-
-
-
-This might prompt further questions, like "what other Cisco devices do we have?"
 
 
 
