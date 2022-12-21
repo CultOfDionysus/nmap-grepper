@@ -1,13 +1,12 @@
 #!/usr/bin/perl
 #
 # read the "greppable" nmap output, outputting a single line for each open port, for each host
-# "can we have a list of all of the servers running SSL or SMTP?"
+# Enables answering of questions like "can we have a list of all of the servers running SMTP or Telnet?"
 #
-#       Simon Chapman
 #
 use strict;
 use warnings;
-no warnings 'uninitialized'; # bit of a hack. remove if output isn't as expected
+no warnings 'uninitialized'; # bit of a hack - sometimes input contains commas in unexpected places.
 
 my $host;
 my $ip;
