@@ -1,7 +1,7 @@
 # nmap-grepper
 
 ## About
-Flattens Nmap "greppable" input into a tab-delimited table, making it easy to combine, search and select from a large number of .gnmap files. It reads .gnamp input from STDIN and writes tab-delimited lines of fields to STDOUT, __1 line per open port__, as in the following model:
+Flattens Nmap "greppable" input into a tab-delimited table, making it easy to combine, search and select from a large number of .gnmap files. It reads .gnmap input from STDIN and writes tab-delimited lines of fields to STDOUT, __1 line per open port__, as in the following model:
 
 ```1:IP Address <tab> 2:Hostname <tab> 3:Port <tab> 4:Protocol <tab> 5:Service Name <tab> 6:Service Banner <newline>```
 
