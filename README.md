@@ -13,7 +13,7 @@ If you're in the habit of scanning large networks with Nmap, sometimes you want 
 And so on. Often, automated vulnerability scanners can miss open services, or can fail to spot services hiding on non-standard ports. Nmap-grepper helps you to query large sets of gnmap files and delve deeper into your network.
 
 ## Example Usage
-Pre-requisites: A bunch of previously generated .gnmap files. Assuming you've already performed an nmap scan of your network(s), specifying the -oA or -oG options with one or more commands along the lines of:
+__Prerequisites:__ A bunch of previously generated .gnmap files. Assuming you've already performed an nmap scan of your network(s), specifying the -oA or -oG options with one or more commands along the lines of:
 
 ```bash
 # Will produce output including outfile1.gnmap
@@ -53,7 +53,7 @@ You are limited only by your own ingenuity!
 ## Top Tips
 
 ### Search Limiting
-If you want to limit the search to the exact contents of a field, for example you want to search for the whole IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*". then include the tab delimiter in your grep command, eg:
+If you want to limit the search to the exact contents of a field, for example you want to search for the exact IP address "192.168.33.14" but you don't want grep to also match "192.168.33.14*", then include the tab delimiter in your grep command, eg:
 
 ```bash     
 cat *gnmap | ./nmap-grepper.pl | cut -f1,3,5,6|grep -i 192.168.33.14$'\t' | sort -u
@@ -73,7 +73,7 @@ cat *gnmap | ./nmap-grepper.pl | cut -f1,3,6 | grep -i "ssh" | sort -u > textfil
 
 Then open the file in Excel, making sure to select "text files" as the file type.
 
-![image](https://user-images.githubusercontent.com/108018363/208962360-5bb9f3b8-c198-4208-9d8d-06de1e5e84e2.png)
+![image](https://user-images.githubusercontent.com/108018363/208962360-5bb9f3b8-c198-4208-9d8d-06de1e5e84e2.png) 
 
 
 Once opened, Excel will detect the file is delimited. Go ahead as follows:
