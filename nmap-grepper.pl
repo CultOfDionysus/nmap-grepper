@@ -3,6 +3,7 @@
 # read the "greppable" nmap output, outputting a single line for each open port, for each host
 # Enables answering of questions like "can we have a list of all of the servers running SMTP or Telnet?"
 #
+# https://github.com/CultOfDionysus/nmap-grepper
 #
 use strict;
 use warnings;
@@ -16,19 +17,15 @@ my @services;
 my @ports;
 my @sections;
 
-while (<>)              # read stdin
+while (<>)   
 {
-
         @sections = split /\t/; # each input line divided by tabs
 
-        # process each section
-
-        foreach my $s (@sections) {
+        foreach my $s (@sections) {  # process each section
 
         #
         # Host section
         #
-
                 if ($s =~ /Host:/) {
                         if ( /(\d+)\.(\d+)\.(\d+)\.(\d+)/, $s ) {  #looks like an IP
                                 $ip = $&;
@@ -44,8 +41,7 @@ while (<>)              # read stdin
                 }
         #
         # Ports section
-        #
-
+        #        
                 if ($s =~ /Ports:/) {
                         $s =~ s/Ports:[ ]+//g;  # strip the word "Ports:" plus trailing spaces
                         @ports = split /,[ ]+/, $s;
