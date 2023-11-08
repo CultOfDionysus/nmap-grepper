@@ -63,11 +63,16 @@ cat *gnmap | ./nmap-grepper.pl | cut -f1,3,5,6|grep -i 192.168.33.14$'\t' | sort
 Extend the range of fields you include (or remove the cut altogether) to enable searching on other fields such as hostname.
 
 ### Extract a list of distinct open ports
-Very useful if you've already done a comprehensive scan of target networks, and you just want to configure another scanning tool to hit the ports you know are open. If you've ever spent 3 days mapping a network, and then wasted time asking Nessus to scan 65535 ports again and again - you'll known what I mean.
+Very useful if you've already done a comprehensive scan of target networks, and you just want to configure another scanning tool to hit the ports you know are open. If you've ever spent 3 days mapping a network, and then wasted time asking Nessus to scan 
+65535 ports again and again - you'll known what I mean.
 
 ```bash
-cat *.gnmap | ./nmapstats-grepper.pl | cut -f3|sed -e 's/\/tcp//g'|sed -e 's/\/udp//g'|sort -u|sed -e :a -e '$!N; s/\n/,/; ta'
+cat *.gnmap | ./nmap-grepper.pl | cut -f3|sed -e 's/\/tcp//g'|sed -e 's/\/udp//g'|sort -u|sed -e :a -e '$!N; s/\n/,/; ta'
 ```
+
+Example output:
+
+![image](https://github.com/CultOfDionysus/nmap-grepper/assets/108018363/1c83ce58-7628-482d-be9b-850a5ec93e35)
 
 ### Import into Excel via .txt file 
 A very useful tip if you need to include any output for reporting or further processing. Save your output into a .txt file:
